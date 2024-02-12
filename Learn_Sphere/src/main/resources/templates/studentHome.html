@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LearnSphere - Elevate Your Learning</title>
+
+<!-- External CSS -->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+<link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css"
+	rel="stylesheet">
+</head>
+
+<body class="p-3 m-0 border-0 bd-example m-0 border-0"
+	style="font-family: 'Nunito', sans-serif;">
+	<nav class="navbar fixed-top"
+		style="background-color: #dee2e6; height: .85in; padding: 0.5rem 0.5rem;">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="/">LearnSphere</a>
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+				aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="offcanvas offcanvas-end" tabindex="-1"
+				id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+				<div class="offcanvas-header">
+					<h5 class="offcanvas-title" id="offcanvasNavbarLabel">Dashboard</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+						aria-label="Close"></button>
+				</div>
+				<div class="offcanvas-body">
+					<ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+						<li class="nav-item"><a class="nav-link active"
+							aria-current="page" href="/">Home</a></li>
+						<li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle" href="#" role="button"
+							data-bs-toggle="dropdown" aria-expanded="false"> User Profile
+						</a>
+							<ul class="dropdown-menu">
+								<li><a class="dropdown-item" href="#">View Profile</a></li>
+								<li><a class="dropdown-item" href="#">Edit Profile</a></li>
+							</ul></li>
+						<li class="nav-item"><a class="nav-link active"
+							aria-current="page" href="/myCourses">My Courses</a></li>
+						<li class="nav-item"><a class="nav-link active"
+							aria-current="page" href="/login">Logout</a></li>
+					</ul>
+					<form class="d-flex mt-3" role="search">
+						<input class="form-control me-2" type="search"
+							placeholder="Search" aria-label="Search">
+						<button class="btn btn-outline-success" type="submit">Search</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</nav>
+
+	<main class="mt-5">
+		<!-- Move main here -->
+		<div class="row ">
+			<div class="card coursecontainer mb-3 col-md-4"
+				th:each="course : ${courses}"
+				style="width: 22rem; margin-left: 20px;">
+				<img th:src="@{'data:image/jpeg;base64,' + ${course.courseImage}}"
+					class="card-img-top" alt="Course Image"
+					style="width: 100%; height: 200px;">
+
+
+				<div class="card-body d-flex flex-column">
+					<h6 class="card-subtitle mb-2 text-muted">
+						Course ID: <span th:text="${course.courseId}"></span>
+					</h6>
+					<h5 class="card-title" th:text="${course.courseName}">Your
+						Course Name</h5>
+					<p class="card-text"
+						th:text="${course.courseDescription.substring(0, 70) + '...'}">
+						Description <a href="#" class="read-more"></a>Read More
+					</p>
+
+					<div class="mt-auto">
+						<h6 class="card-subtitle mb-2 text-muted">
+							Course Price(INR): <span th:text="${course.coursePrice}"></span>
+						</h6>
+
+						<a
+							th:href="@{'/api/student/getCourse?courseId=' + ${course.courseId}}"
+							class="enroll btn btn-primary align-self-end">Enroll</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+
+	<!-- Bootstrap JavaScript dependencies -->
+	<script
+		src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+		integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+		integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+		crossorigin="anonymous"></script>
+	<!-- <!-- Your custom script for login check -->
+	<script>
+		// Simulating user login status
+		var userLoggedIn = false;
+
+		function checkLogin() {
+			if (userLoggedIn) {
+				window.location.href = "/payment.html";
+			} else {
+				alert("Please log in first.");
+				// Replace this with the actual URL to your login page
+				window.location.href = "/login";
+			}
+		}
+	</script>
+
+
+	<!-- Thymeleaf footer inclusion -->
+	<div th:replace="~{/footer::footer}"></div>
+</body>
+
+</html>

@@ -1,0 +1,133 @@
+/* Reset styles */
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	background-color: #f0f0f0;
+}
+
+/* Welcome container styling */
+.welcome-container {
+	text-align: center;
+	padding: 2px;
+}
+
+/* Content container styling */
+.content-container {
+	position: relative;
+}
+
+/* Introduction section styles */
+.intro {
+	position: relative;
+	height: 300px;
+}
+
+.image-container {
+	width: 100%;
+	height: 100%;
+	background: url('/images/learn-img.jpg') no-repeat center;
+	background-size: cover;
+}
+
+/* Description section styles */
+.description-section {
+	background-color: #fff;
+	padding: 20px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	margin-top: -50px;
+}
+
+/* Container styling for registration form */
+.container.registration-container, .container.login-container {
+	max-width: 400px;
+	margin: 10px auto;
+	background-color: #fff;
+	border: 1px solid #ccc;
+	padding: 20px;
+	border-radius: 10px;
+}
+
+/* Input styling for registration and login forms */
+.input.registration-input, .date.registration-date, .input.login-input,
+	.date.login-date, .button.registration-button, .button.login-button {
+	width: calc(100% - 20px);
+	margin: 10px 0;
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	font-weight: bold;
+}
+
+/* Label styling for registration and login forms */
+.label.registration-label, .label.login-label {
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+
+/* Button styling for registration and login forms */
+.button.registration-button, .button.login-button {
+	background-color: #50ba54;
+	border: none;
+	border-radius: 4px;
+	color: white;
+	cursor: pointer;
+}
+
+.button.registration-button:hover, .button.login-button:hover {
+	background-color: #45a07d;
+}
+
+/* Alert message styling */
+.alert-danger {
+	background-color: #f8d7da;
+	color: #721c24;
+	padding: 2px;
+	text-align: center;
+	border: 1px solid #f5c6cb;
+	border-radius: 2px;
+	margin-bottom: 5px;
+}
+
+/* Footer styling */
+
+/* Link styling */
+p a {
+	text-decoration: none;
+	color: white;
+}
+
+p a:hover {
+	text-decoration: underline;
+}
+
+/* Heading 2 styling */
+h2 {
+	color: #333;
+}
+
+ body {
+      background-color: #f8f9fa;
+    }
+
+    .login-container {
+      max-width: 400px;
+      margin: auto;
+      margin-top: 100px;
+      padding: 20px;
+      background-color: #fff;
+      border: 1px solid #ced4da;
+      border-radius: 8px;
+    }
+
+    .password-container {
+      position: relative;
+    }
+
+    .toggle-password {
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      transform: translateY(-50%);
+      cursor: pointer;
+    }
